@@ -27,7 +27,7 @@
 }
 
 #description {
-    margin-top: 35px;
+    margin-top: 50px;
 }
 
 li {
@@ -37,7 +37,7 @@ li {
     margin: 0;
     padding: 0;
     color: gray;
-    
+    text-transform: capitalize;
 }
 
 ul {
