@@ -37,6 +37,9 @@ li {
     margin: 0;
     padding: 0;
     color: gray;
+}
+
+li.first-letter {
     text-transform: capitalize;
 }
 
