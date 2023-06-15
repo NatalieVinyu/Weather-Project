@@ -1,9 +1,33 @@
-.weather-app {
+.weather-container {
     border: 1px solid black;
     border-radius: 5px;
     max-width: 700px;
     padding: 10px;
     margin: 50px;
+}
+
+.row {
+    margin-left: 10px;
+}
+
+.weather-container strong {
+    font-size: 100px;
+}
+
+.weather-container .units {
+    position: relative;
+    font-size: 20px;
+    top: -55px;
+
+}
+
+.col-md {
+    padding: 0;
+    height: 130px;
+}
+
+#description {
+    margin-top: 35px;
 }
 
 li {
@@ -12,6 +36,8 @@ li {
     line-height: 18px;
     margin: 0;
     padding: 0;
+    color: gray;
+    
 }
 
 ul {
@@ -21,5 +47,11 @@ ul {
 
 h1 {
     margin-bottom: 0;
+    font-family: 'Merriweather', serif;
 }
+
+p {
+    font-size: 100px;
+}
+
 
