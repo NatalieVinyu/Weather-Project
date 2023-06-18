@@ -9,6 +9,7 @@ function cityDay(timestamp) {
     
 function cityTime(timestamp) {
     let date = new Date(timestamp);
+    
     let hours = date.getHours();
     if (hours < 10) {
         hours = `0${hours}`
@@ -62,7 +63,6 @@ function submitHandle(event) {
     search(cityInput.value);
 }
 
-
 function fahrenheitTemperature(event) {
     event.preventDefault();
     celsiusLink.classList.remove("active");
@@ -81,8 +81,24 @@ function celsiusTemperature(event) {
     
 }
 
-let celsiusTemp = null;
+function currentPosition(position) {
+    let latitude = position.coords.latitude
+    let longitude = position.coords.longitude
+    apiKey = "77cb0df8b340d241d54524527e9a1295"
+    apiUrl =`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
 
+    axios.get(apiUrl).then(displayWeather)
+}
+
+function getCurrentPosition(event){
+event.preventDefault()
+navigator.geolocation.getCurrentPosition(currentPosition)
+}
+
+let button = document.querySelector("#button")
+button.addEventListener("click", getCurrentPosition)
+
+let celsiusTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitHandle);
