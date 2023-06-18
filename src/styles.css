@@ -10,6 +10,10 @@
     margin-left: 10px;
 }
 
+.card {
+    border: none;
+}
+
 .weather-container strong {
     font-size: 100px;
 }
@@ -27,6 +31,10 @@
 
 }
 
+.weather-container .active {
+    color: gray;
+}
+
 .col-md {
     padding: 0;
     height: 130px;
@@ -34,6 +42,26 @@
 
 #description {
     margin-top: 50px;
+}
+
+.card {
+    margin: 15px auto;
+}
+
+.search-input {
+    width: 300px;
+    height: 33px;
+}
+
+button {
+    border: 1px solid black;
+    height: 33px;
+    width: 30px;
+}
+
+
+button.hover {
+    cursor: pointer;
 }
 
 li {
