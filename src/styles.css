@@ -63,6 +63,28 @@ div.col {
     max-width: 700px;
 }
 
+.forecast {
+    text-align: center;
+}
+
+.forecast img {
+    width: 100px;
+    height: 100px;
+}
+
+.forecast-date {
+    font-family: 'Merriweather', serif;
+}
+
+.forecast-temp {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+}
+
+.forecast-temp .min-temp {
+    opacity: 0.5;
+}
+
 button {
     border: 1px solid #cccccc79;
     background-color: #cccccc42;
