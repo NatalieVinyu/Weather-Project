@@ -22,6 +22,39 @@ function cityTime(timestamp) {
     return `${minutes}:${hours}`
 }
 
+function getForecast(coordinates) {
+    console.log(coordinates)
+    let apiKey = "667d9f573c8af4c33457be5d561a9148"
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+    axios.get(apiUrl).then(displayForecast)
+}
+
+function displayForecast(response) {
+    console.log(response.data)
+    let forecast = document.querySelector("#forecast")
+    let forecastHTML = `<div class="row">`
+    let days = ["Tue", "Wed", "Thu", "Sun"]
+    days.forEach(function(day) {
+
+   
+    forecastHTML = forecastHTML + `
+    <div class="col-2">
+        <div class="forecast-date">
+            ${day}
+        </div>
+      <img src="https://openweathermap.org/img/wn/10d@2x.png"/>
+      <div class="forecast-temp">
+        <span class="max-temp">18º</span>
+        <span class="min-temp">12º</span>
+      </div>
+    </div>`
+  })
+
+    forecastHTML = forecastHTML + `</div>`
+    forecast.innerHTML = forecastHTML
+}
+
+
 function displayWeather(response) {
     let city = document.querySelector("#city")
     city.innerHTML = response.data.name
@@ -45,10 +78,11 @@ function displayWeather(response) {
 
     let time = document.querySelector("#time")
     time.innerHTML = cityDay(response.data.dt * 1000)
-    console.log(response)
 
     let icon = document.querySelector("#icon")
     icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+
+    getForecast(response.data.coord)
 }
 
 function search(city) {
