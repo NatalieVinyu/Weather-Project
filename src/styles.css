@@ -1,12 +1,27 @@
+.container {
+    background-image: url(weather-image.jpeg);
+}
+
 .weather-container {
     border: 1px solid black;
     border-radius: 5px;
-    max-width: 700px;
+    max-width: 800px;
     padding: 10px;
+
+
 }
 
 .card {
     border: none;
+}
+
+#details {
+    width: 700px;
+    text-align: center;
+}
+
+#description {
+    padding: 50px 0;
 }
 
 .weather-container strong {
@@ -20,9 +35,8 @@
 
 }
 .weather-container img{
-    height: 165px;
-    width: 165px;
-    float: left;
+    height: 150px;
+    width: 150px;
 }
 
 .weather-container .active {
@@ -35,10 +49,6 @@
 }
 div.col {
     padding: 0px;
-}
-
-#description {
-    margin-top: 50px;
 }
 
 .card {
@@ -65,11 +75,13 @@ div.col {
 
 .forecast {
     text-align: center;
+    padding: 10px;
 }
 
 .forecast img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
 }
 
 .forecast-date {
@@ -77,8 +89,9 @@ div.col {
 }
 
 .forecast-temp {
-    font-size: 14px;
-    font-family: 'Merriweather', serif;
+    font-size: 13px;
+    font-weight: 300;
+    font-family: 'Merriweather';
 }
 
 .forecast-temp .min-temp {
@@ -102,6 +115,10 @@ button:hover {
     background-color: #cccccc79;
     transition: 150ms ease-in;
 
+}
+
+hr {
+    color: gray;
 }
 
 
@@ -128,6 +145,3 @@ h1 {
     margin-bottom: 0;
     font-family: 'Merriweather', serif;
 }
-
-
-

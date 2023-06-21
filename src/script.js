@@ -1,29 +1,27 @@
-function cityDay(timestamp) {
-    let date = new Date(timestamp);
-    
+function formatDate(timestamp) {
+    let date = new Date(timestamp)
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     let day = days[date.getDay()]
-    
+
     return `${day}`
 }
-    
-function cityTime(timestamp) {
-    let date = new Date(timestamp);
-    
-    let hours = date.getHours();
-    if (hours < 10) {
+
+function formatTime(timestamp) {
+    let date = new Date(timestamp)
+    let hours = date.getHours()
+     if (hours < 10){
         hours = `0${hours}`
-    }
-    let minutes = date.getMinutes();
-    if (minutes < 10) {
+       }
+
+    let minutes = date.getMinutes()
+     if (minutes < 10){
         minutes = `0${minutes}`
-    }
-    
-    return `${minutes}:${hours}`
+       }
+
+    return `${hours}:${minutes}`
 }
 
 function getForecast(coordinates) {
-    console.log(coordinates)
     let apiKey = "667d9f573c8af4c33457be5d561a9148"
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(displayForecast)
@@ -44,7 +42,7 @@ function displayForecast(response) {
     
     let forecastHTML = `<div class="row">`
     forecast.forEach(function(forecastDay, index) {
-        if (index < 5){
+        if (index < 6){
 
     forecastHTML = forecastHTML + `
     <div class="col-2">
@@ -64,8 +62,8 @@ function displayForecast(response) {
     forecastElement.innerHTML = forecastHTML
 }
 
-
 function displayWeather(response) {
+    console.log(response)
     let city = document.querySelector("#city")
     city.innerHTML = response.data.name
 
@@ -81,11 +79,11 @@ function displayWeather(response) {
     let wind = document.querySelector("#wind")
     wind.innerHTML = response.data.wind.speed
 
-    let day = document.querySelector("#day")
-    day.innerHTML = cityTime(response.data.dt * 1000)
+    let dateElement = document.querySelector("#day")
+    dateElement.innerHTML = formatDate(response.data.dt * 1000)
 
-    let time = document.querySelector("#time")
-    time.innerHTML = cityDay(response.data.dt * 1000)
+    let timeElement = document.querySelector("#time")
+    timeElement.innerHTML = formatTime(response.data.dt * 1000)
 
     let icon = document.querySelector("#icon")
     icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
